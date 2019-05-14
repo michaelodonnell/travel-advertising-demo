@@ -18,14 +18,19 @@ PARAMETERS:
     2. Previously visited the city
     3. Number of travelers
 
-SCENARIO 1: Air Segment is Booked
--  
+SCENARIO 1: Executive with Air Segment Booked
+- An executive is travel to NYC on business. Their flights are booked, but no other aspects of their trip.
+- Show accommodation, car rental and entertainment advertising relevant to this traveler
 
-SCENARIO 2: Air & Hotel Segments are Booked
-- 
+SCENARIO 2: Executive with Air & Hotel Segments Booked
+- The same executive is travel to NYC again on business. Their flights and hotel are booked, but no other aspects of their trip.
+- Show car rental and entertainment advertising relevant to this traveler *
 
-SCENARIO 3: Air, Hotel & Car Segments are Booked
-- 
+* Can we identify that the traveler does not want car rental if that's the case?
+
+SCENARIO 3: Mid-level sales person with Air, Hotel & Car Segments are Booked
+- A Mid-level sales person is traveling to NYC for a sales pitch with a prospect. Their flights, hotel and car rental are booked
+- Show entertainment advertising relevant to this traveler
 
 TO DO:
 1. Select a location to sample
