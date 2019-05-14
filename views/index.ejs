@@ -114,14 +114,14 @@
     setTripContext();
   });
 
-  // Set the travel profile and trip context
+  // Set the traveler profile
   function setTravelProfile() {
     travelProfile.rank = $("input[name=rank]").val();
     travelProfile.age = $("input[name=age]").val();
     travelProfile.gender = $("input[name=gender]").val();
-    console.log(travelProfile);
   }
 
+  // Set the trip context
   function setTripContext() {
     tripContext.arrivalDateTime = $("input[name=arrivalDateTime]").val();
     tripContext.departureDateTime = $("input[name=departureDateTime]").val();
@@ -131,7 +131,6 @@
       tripContext.segments.push(this.value);
     });
     tripContext.numberInGroup = $("input[name=numberInGroup]").val();
-    console.log(tripContext);
   }
 
 </script>
