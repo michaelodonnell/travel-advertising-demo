@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <p>A mock corporate booking tool which can demonstrate the ability to place well targetted, contextual advertising.
+    The demo will include parameters to adjust the values of the traveler and the trip, and view the resulting
+    adjustments in the advertising targetting in real time.</p>
+  <div class="panel">
+    <h2>Travel Profile</h2>
+    <form>
+      <table>
+        <tr>
+          <td>
+            Corporate rank:
+            <br />
+            <input type="radio" name="rank" value="executive" checked> Executive<br>
+            <input type="radio" name="rank" value="mid-level sales"> Mid-level sales<br>
+          </td>
+          <td>
+            Age:
+            <br />
+            <input type="radio" name="age" value="50" checked> 50<br>
+            <input type="radio" name="age" value="25"> 25<br>
+          </td>
+          <td>
+            Gender:
+            <br />
+            <input type="radio" name="gender" value="male" checked> Male<br>
+            <input type="radio" name="gender" value="female"> Female<br>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <div class="panel">
+    <h2>Trip Context</h2>
+    <form>
+      <table>
+        <tr>
+          <td>
+            Arrival Date & Time:<br>
+            <input type="text" name="arrivalDateTime" value="2019-06-18"><br>
+            <br />
+            Departure Date & Time:<br>
+            <input type="text" name="departureDateTime" value="2019-06-25"><br>
+          </td>
+          <td>
+            <input type="checkbox" name="air" value="true"> Air Segment Booked<br>
+            <input type="checkbox" name="hotel" value="true"> Hotel Segment Booked<br>
+            <input type="checkbox" name="car" value="true"> Car Rental Segment Booked<br>
+          </td>
+          <td>
+            Number in group:<br>
+            <input type="text" name="numberInGroup" value="1"><br>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <div class="panel">
+    <h2>Search Query</h2>
+    <ul>
+      <li>"Hotels for executives in NYC in April"</li>
+      <li>"Car rental for executives in NYC in April"</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h2>Result</h2>
+  </div>
+</body>
+
 </html>
