@@ -52,9 +52,9 @@
             <input type="text" name="departureDateTime" value="2019-06-25"><br>
           </td>
           <td>
-            <input type="checkbox" name="air" value="true"> Air Segment Booked<br>
-            <input type="checkbox" name="hotel" value="true"> Hotel Segment Booked<br>
-            <input type="checkbox" name="car" value="true"> Car Rental Segment Booked<br>
+            <input type="checkbox" name="segments" value="air"> Air Segment Booked<br>
+            <input type="checkbox" name="segments" value="hotel"> Hotel Segment Booked<br>
+            <input type="checkbox" name="segments" value="car"> Car Rental Segment Booked<br>
           </td>
           <td>
             Number in group:<br>
@@ -108,10 +108,10 @@
 
   // Detect form changes
   $("#travelProfile").change(function () {
-    alert("The traveler profile has been changed.");
+    setTravelProfile();
   });
   $("#tripContext").change(function () {
-    alert("The trip context has been changed.");
+    setTripContext();
   });
 
   // Set the travel profile and trip context
@@ -125,9 +125,11 @@
   function setTripContext() {
     tripContext.arrivalDateTime = $("input[name=arrivalDateTime]").val();
     tripContext.departureDateTime = $("input[name=departureDateTime]").val();
-    tripContext.air = $("input[name=air]").val();
-    tripContext.hotel = $("input[name=hotel]").val();
-    tripContext.car = $("input[name=car]").val();
+    var segments = $('input[name=segments]:checked');
+    tripContext.segments = [];
+    segments.each(function () {
+      tripContext.segments.push(this.value);
+    });
     tripContext.numberInGroup = $("input[name=numberInGroup]").val();
     console.log(tripContext);
   }
