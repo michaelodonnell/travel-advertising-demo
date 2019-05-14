@@ -3,6 +3,7 @@
 
 <head>
   <title><%= title %></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
@@ -13,7 +14,7 @@
     adjustments in the advertising targetting in real time.</p>
   <div class="panel">
     <h2>Travel Profile</h2>
-    <form>
+    <form id="travelProfile">
       <table>
         <tr>
           <td>
@@ -40,7 +41,7 @@
   </div>
   <div class="panel">
     <h2>Trip Context</h2>
-    <form>
+    <form id="tripContext">
       <table>
         <tr>
           <td>
@@ -94,5 +95,43 @@
     </div>
   </div>
 </body>
+
+<script>
+
+  // Start the demo
+  var travelProfile = {};
+  var tripContext = {};
+  $(document).ready(function () {
+    setTravelProfile();
+    setTripContext();
+  });
+
+  // Detect form changes
+  $("#travelProfile").change(function () {
+    alert("The traveler profile has been changed.");
+  });
+  $("#tripContext").change(function () {
+    alert("The trip context has been changed.");
+  });
+
+  // Set the travel profile and trip context
+  function setTravelProfile() {
+    travelProfile.rank = $("input[name=rank]").val();
+    travelProfile.age = $("input[name=age]").val();
+    travelProfile.gender = $("input[name=gender]").val();
+    console.log(travelProfile);
+  }
+
+  function setTripContext() {
+    tripContext.arrivalDateTime = $("input[name=arrivalDateTime]").val();
+    tripContext.departureDateTime = $("input[name=departureDateTime]").val();
+    tripContext.air = $("input[name=air]").val();
+    tripContext.hotel = $("input[name=hotel]").val();
+    tripContext.car = $("input[name=car]").val();
+    tripContext.numberInGroup = $("input[name=numberInGroup]").val();
+    console.log(tripContext);
+  }
+
+</script>
 
 </html>
