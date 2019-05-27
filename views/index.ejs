@@ -13,7 +13,8 @@
 
 <body>
   <h1><%= title %></h1>
-  <h5>A mock corporate booking tool which can demonstrate the ability to place well targetted, contextual advertising.
+  <h5>
+    A mock corporate booking tool which can demonstrate the ability to place well targetted, contextual advertising.
     The demo will include parameters to adjust the values of the traveler and the trip, and view the resulting
     adjustments in the advertising targetting in real time.
   </h5>
@@ -89,6 +90,17 @@
           </td>
           <td>
             <h6>
+              Last User Action:
+            </h6>
+            <select name="lastAction">
+              <option value="" selected>Unknown</option>
+              <option value="searchedair">Searched for an air segment</option>
+              <option value="bookingair">Booked an air segment</option>
+              <option value="searchedhotel">Searched for an hotel segment</option>
+              <option value="bookinghotel">Booked an hotel segment</option>
+            </select>
+            <br />
+            <h6>
               Booked Segments:
             </h6>
             <label>
@@ -118,6 +130,9 @@
   </div>
   <div class="card-panel">
     <h3>Search Request</h3>
+    <h5>
+      The search request is built from the information available in the traveler's profile and the trip context
+    </h5>
     <pre id="request"></pre>
   </div>
   <div class="card-panel">
@@ -152,17 +167,18 @@
   var tripContext = {};
   var searchRequest = {};
   $(document).ready(function () {
+    $('select').formSelect();
     setTravelProfile();
     setTripContext();
     setSearchRequest();
   });
 
   // Detect form changes
-  $("#travelProfile input").on("change paste keyup", function () {
+  $("#travelProfile").on("change paste keyup", function () {
     setTravelProfile();
     setSearchRequest();
   });
-  $("#tripContext input").on("change paste keyup", function () {
+  $("#tripContext").on("change paste keyup", function () {
     setTripContext();
     setSearchRequest();
   });
@@ -178,6 +194,9 @@
   function setTripContext() {
     tripContext.arrivalDateTime = $("input[name=arrivalDateTime]").val();
     tripContext.departureDateTime = $("input[name=departureDateTime]").val();
+    tripContext.lastAction = $("select[name=lastAction]").val();
+    if (tripContext.lastAction === "")
+      delete tripContext.lastAction;
     var segments = $('input[name=segments]:checked');
     tripContext.segments = [];
     segments.each(function () {
