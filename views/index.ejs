@@ -117,11 +117,8 @@
     </form>
   </div>
   <div class="card-panel">
-    <h3>Search Query</h3>
-    <ul>
-      <li>"Hotels for executives in NYC in April"</li>
-      <li>"Car rental for executives in NYC in April"</li>
-    </ul>
+    <h3>Search Request</h3>
+    <pre id="request"></pre>
   </div>
   <div class="card-panel">
     <h3>Result</h3>
@@ -153,19 +150,21 @@
   // Start the demo
   var travelProfile = {};
   var tripContext = {};
+  var searchRequest = {};
   $(document).ready(function () {
     setTravelProfile();
     setTripContext();
+    setSearchRequest();
   });
 
   // Detect form changes
   $("#travelProfile input").on("change paste keyup", function () {
     setTravelProfile();
-    console.log(travelProfile);
+    setSearchRequest();
   });
   $("#tripContext input").on("change paste keyup", function () {
     setTripContext();
-    console.log(tripContext);
+    setSearchRequest();
   });
 
   // Set the traveler profile
@@ -185,6 +184,34 @@
       tripContext.segments.push(this.value);
     });
     tripContext.numberInGroup = $("input[name=numberInGroup]").val();
+  }
+
+  // Set the search request
+  function setSearchRequest() {
+    searchRequest.request = {};
+    searchRequest.request.traveler = travelProfile;
+    searchRequest.request.trip = tripContext;
+    $('#request').html(syntaxHighlight(JSON.stringify(searchRequest, null, 2)));
+  }
+
+  // JSON snippet highlighting
+  function syntaxHighlight(json) {
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+      var cls = 'number';
+      if (/^"/.test(match)) {
+        if (/:$/.test(match)) {
+          cls = 'key';
+        } else {
+          cls = 'string';
+        }
+      } else if (/true|false/.test(match)) {
+        cls = 'boolean';
+      } else if (/null/.test(match)) {
+        cls = 'null';
+      }
+      return '<span class="' + cls + '">' + match + '</span>';
+    });
   }
 
 </script>
