@@ -159,18 +159,20 @@
   });
 
   // Detect form changes
-  $("#travelProfile").change(function () {
+  $("#travelProfile input").on("change paste keyup", function () {
     setTravelProfile();
+    console.log(travelProfile);
   });
-  $("#tripContext").change(function () {
+  $("#tripContext input").on("change paste keyup", function () {
     setTripContext();
+    console.log(tripContext);
   });
 
   // Set the traveler profile
   function setTravelProfile() {
-    travelProfile.rank = $("input[name=rank]").val();
-    travelProfile.age = $("input[name=age]").val();
-    travelProfile.gender = $("input[name=gender]").val();
+    travelProfile.rank = $("input[name=rank]:checked").val();
+    travelProfile.age = $("input[name=age]:checked").val();
+    travelProfile.gender = $("input[name=gender]:checked").val();
   }
 
   // Set the trip context
