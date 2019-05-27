@@ -22,22 +22,46 @@
       <table>
         <tr>
           <td>
-            Corporate rank:
+            <h6>
+              Corporate rank:
+            </h6>
+            <label>
+              <input name="rank" type="radio" value="executive" checked />
+              <span>Executive</span>
+            </label>
             <br />
-            <input type="radio" name="rank" value="executive" checked> Executive<br>
-            <input type="radio" name="rank" value="mid-level sales"> Mid-level sales<br>
+            <label>
+              <input name="rank" type="radio" value="mid-level sales" />
+              <span>Mid-level Sales</span>
+            </label>
           </td>
           <td>
-            Age:
+            <h6>
+              Age:
+            </h6>
+            <label>
+              <input name="age" type="radio" value="25" checked />
+              <span>25</span>
+            </label>
             <br />
-            <input type="radio" name="age" value="50" checked> 50<br>
-            <input type="radio" name="age" value="25"> 25<br>
+            <label>
+              <input name="age" type="radio" value="50" />
+              <span>50</span>
+            </label>
           </td>
           <td>
-            Gender:
+            <h6>
+              Gender:
+            </h6>
+            <label>
+              <input name="gender" type="radio" value="male" checked />
+              <span>Male</span>
+            </label>
             <br />
-            <input type="radio" name="gender" value="male" checked> Male<br>
-            <input type="radio" name="gender" value="female"> Female<br>
+            <label>
+              <input name="gender" type="radio" value="female" />
+              <span>Female</span>
+            </label>
           </td>
         </tr>
       </table>
@@ -49,19 +73,39 @@
       <table>
         <tr>
           <td>
-            Arrival Date & Time:<br>
+            <h6>
+              Arrival Date & Time:
+            </h6>
             <input type="text" name="arrivalDateTime" value="2019-06-18"><br>
             <br />
-            Departure Date & Time:<br>
+            <h6>
+              Departure Date & Time:
+            </h6>
             <input type="text" name="departureDateTime" value="2019-06-25"><br>
           </td>
           <td>
-            <input type="checkbox" name="segments" value="air"> Air Segment Booked<br>
-            <input type="checkbox" name="segments" value="hotel"> Hotel Segment Booked<br>
-            <input type="checkbox" name="segments" value="car"> Car Rental Segment Booked<br>
+            <h6>
+              Booked Segments:
+            </h6>
+            <label>
+              <input type="checkbox" name="segments" value="air" />
+              <span>Air Segment Booked</span>
+            </label>
+            <br />
+            <label>
+              <input type="checkbox" name="segments" value="hotel" />
+              <span>Hotel Segment Booked</span>
+            </label>
+            <br />
+            <label>
+              <input type="checkbox" name="segments" value="car" />
+              <span>Car Segment Booked</span>
+            </label>
           </td>
           <td>
-            Number in group:<br>
+            <h6>
+              Number in group:
+            </h6>
             <input type="text" name="numberInGroup" value="1"><br>
           </td>
         </tr>
