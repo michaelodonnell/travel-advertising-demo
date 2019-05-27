@@ -3,7 +3,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-h1, h2, p, label, table {
+h1, h2, h3 {
+  color: #008ab1;
+}
+
+p, label, table {
   color: #5d5d5d;
 }
 
