@@ -33,3 +33,15 @@ td {
   display: table;
   clear: both;
 }
+
+tr {
+  border-bottom: 0px;
+}
+
+h2 {
+  margin: 1.373333rem 0 1.424rem 0;
+}
+
+div.card-panel {
+  background-color: #dde6e8;
+}
