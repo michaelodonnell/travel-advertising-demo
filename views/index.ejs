@@ -8,6 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
@@ -134,6 +135,12 @@
       The search request is built from the information available in the traveler's profile and the trip context
     </h5>
     <pre id="request"></pre>
+    <br />
+    <a class="waves-effect waves-light btn" onclick=location.reload()>Reset<i class="material-icons right">refresh</i></a>
+    &nbsp;&nbsp;&nbsp;
+    <button class="btn waves-effect waves-light" type="submit" name="action">Send
+      <i class="material-icons right">send</i>
+    </button>
   </div>
   <div class="card-panel">
     <h3>Result</h3>
